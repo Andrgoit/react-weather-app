@@ -6,7 +6,7 @@ export default function Logo() {
       <div className=" w-24 h-24">
         <img src={logo} alt="logo" className="w-full h-full" />
       </div>
-      <p className="text-white text-4xl">WeatherApp</p>
+      <p className="text-white text-4xl">Weather</p>
     </div>
   );
 }

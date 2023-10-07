@@ -1,4 +1,4 @@
-import video from "../../assets/video/video3.mp4";
+import video from "../../assets/video/video2.mp4";
 
 export default function VideoBg() {
   return (
@@ -10,7 +10,7 @@ export default function VideoBg() {
         loop
         className="w-full h-screen absolute top-0 object-cover z-[-1]"
       ></video>
-      <div className="w-full h-screen bg-black opacity-80"></div>
+      <div className="w-full h-screen bg-black opacity-10"></div>
     </div>
   );
 }
