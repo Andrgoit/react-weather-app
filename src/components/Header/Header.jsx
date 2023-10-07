@@ -23,10 +23,10 @@ export default function Header({ openModal }) {
       whileInView="visible"
       variants={animation}
       custom={2}
-      className=" backdrop-blur-md bg-black/40 absolute flex px-4 py-4 justify-between items-center top-0 left-0 w-full border-b-2 border-b-white  "
+      className=" backdrop-blur-md bg-black/40 absolute flex flex-col px-4 py-4 sm:flex-row sm:justify-between items-center top-0 left-0 w-full border-b-2 border-b-white  "
       // style={{ background: "linear-gradient(90deg, #4b6cb7 0%, #182848 100%)" }}
     >
-      <div>
+      <div className="flex flex-col items-center">
         <Logo />
         <Date />
       </div>

@@ -1,5 +1,4 @@
 import format from "date-fns/format";
-// import { ru } from "date-fns/locale";
 
 export default function DateWiget() {
   const weekDay = format(new Date(), "EEEE");

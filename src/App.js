@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { VideoBg, ImageBg, Header } from "./components";
+import { VideoBg, ImageBg, Header, Banner } from "./components";
 import ModalWindow from "./components/Modal/Modal";
 
 function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [staticBg, setStaticBg] = useState(false);
+  const [staticBg, setStaticBg] = useState(true);
 
   function openModal() {
     setIsOpen(true);
@@ -21,6 +21,7 @@ function App() {
     <div className=" w-full h-screen relative ">
       {staticBg ? <ImageBg /> : <VideoBg />}
       <Header openModal={openModal} />
+      <Banner />
       <ModalWindow
         modalIsOpen={modalIsOpen}
         closeModal={closeModal}
