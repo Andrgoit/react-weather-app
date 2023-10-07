@@ -1,4 +1,5 @@
 import format from "date-fns/format";
+// import { ru } from "date-fns/locale";
 
 export default function DateWiget() {
   const weekDay = format(new Date(), "EEEE");
@@ -7,7 +8,6 @@ export default function DateWiget() {
     <div className="flex flex-col gap-2 items-center text-white">
       <p>{weekDay}</p>
       <p>{date}</p>
-      {/* <p>{date.toLocaleString()}</p> */}
     </div>
   );
 }

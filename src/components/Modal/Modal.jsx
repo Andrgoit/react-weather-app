@@ -34,7 +34,7 @@ export default function ModalWindow({
         <AiOutlineCloseCircle size={30} className=" hover:text-red-500 " />
       </button>
       <div className="flex items-center justify-around">
-        <p>Video background:</p>
+        <p>Image background:</p>
         <Switch onChange={staticBackground} checked={staticBg} />
       </div>
     </Modal>
