@@ -16,7 +16,7 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement("#modal");
+Modal.setAppElement(document.getElementById("modal"));
 
 export default function ModalWindow({
   modalIsOpen,
