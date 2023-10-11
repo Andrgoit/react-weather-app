@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import { SelectForecast } from "../../redux/weather/weatherSelectors";
 import { motion } from "framer-motion";
-import weekDay from "../../hooks/weekDay";
+import weekDay from "../../utils/weekDay";
+import { forecastGetWeatherIcon } from "../../utils/forecastGetWeatherIcon";
 
 const animation = {
   hidden: { x: 100, opacity: 0 },
@@ -27,6 +28,14 @@ export default function Forecast() {
     }) => (
       <li key={date} className="text-2xl flex flex-col gap-4 items-center">
         <p>{weekDay(date)}</p>
+        <div
+          className=" w-32 h-32"
+          style={{
+            background: `url(${forecastGetWeatherIcon(code)})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
         <p>{text}</p>
         <p>
           {mintemp_c}

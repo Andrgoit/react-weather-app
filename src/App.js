@@ -43,7 +43,7 @@ function App() {
       <Header openModal={openModal} />
       {/* <Banner /> */}
       {location && (
-        <div className="absolute  top-1/3 left-1/3 flex flex-col gap-8 items-center">
+        <div className="absolute top-1/4 left-1/3 flex flex-col gap-8 items-center">
           <Current />
           <Forecast />
         </div>

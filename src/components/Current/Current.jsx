@@ -1,19 +1,20 @@
 import { useSelector } from "react-redux";
 import { BsGeoAlt } from "react-icons/bs";
-import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { GiWindsock } from "react-icons/gi";
 import { WiHumidity } from "react-icons/wi";
-import stubIcon from "../../assets/icons/weatherIcons/stubIcon.svg";
+
 import sunriseIcon from "../../assets/icons/weatherIcons/sunrise.svg";
 import sunsetIcon from "../../assets/icons/weatherIcons/sunset.svg";
 
 import { motion } from "framer-motion";
-//redux
+
 import {
   SelectLocation,
   SelectCurrent,
   SelectForecast,
 } from "../../redux/weather/weatherSelectors";
+
+import { getWeatherIcon } from "../../utils/getWeatherIcon";
 
 const animation = {
   hidden: { x: -100, opacity: 0 },
@@ -37,17 +38,13 @@ export default function Current() {
     wind_kph,
     humidity,
     is_day,
-    condition: { icon, text, code },
+    condition: { text, code },
   } = current;
 
   const {
     astro: { sunrise, sunset },
     day: { mintemp_c, maxtemp_c },
   } = forecast[0];
-
-  //   console.log("location", location);
-  //   console.log("current", current);
-  // console.log("forecast", forecast);
 
   return (
     <motion.div
@@ -68,10 +65,10 @@ export default function Current() {
           </div>
           <div className="flex gap-3 items-center">
             <div
-              className=" w-32 h-32 rounded-full"
+              className=" w-32 h-32"
               style={{
-                background: `url(${stubIcon})`,
-                backgroundSize: "cover",
+                background: `url(${getWeatherIcon(is_day, code)})`,
+                backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
               }}
             ></div>

@@ -1,34 +1,18 @@
-# React Weather App
+# React Weather App (приложение еще в разработке)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [x] - Работа с адаптивными иконками.
+- [ ] - возможность переключаться на F (Градус Фаренгейта)
 
-## Available Scripts
+![screen](./public/preview.JPG)
 
-In the project directory, you can run:
+Этот проект был написан с помощью [Create React App](https://github.com/facebook/create-react-app), Redux, redux-persist, axios, tailwindcss и др.
 
-### `npm start`
+[Погодный API - www.weatherapi.com](https://www.weatherapi.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Перед началом работы с приложением создайте в корне файл `.env` с переменной `REACT_APP_API_KEY`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+После регистрации на погодном API, укажите полученный ключ в переменной `REACT_APP_API_KEY`.
 
-### `npm test`
+Устанавливаем зависимости `npm i` или `npm install`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Запускаем проект `npm start`.
