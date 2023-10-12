@@ -20,7 +20,7 @@ export default function SearchForm() {
   return (
     <form
       onSubmit={handlerSubmit}
-      className=" bg-transparent border-b-2 border-b-white rounded-2xl py-2 px-2 flex items-center w-[400px]"
+      className=" bg-transparent border-b-2 border-b-white rounded-2xl py-2 px-2 flex items-center max-w-[320px] sm:w-[400px]"
     >
       <input
         onChange={(e) => setQ(e.target.value)}

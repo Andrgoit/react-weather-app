@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { SelectIsCelsius } from "../../redux/setting/settingSelectors";
 import { BsGeoAlt } from "react-icons/bs";
 import { GiWindsock } from "react-icons/gi";
 import { WiHumidity } from "react-icons/wi";
@@ -29,12 +30,15 @@ export default function Current() {
   const location = useSelector(SelectLocation);
   const current = useSelector(SelectCurrent);
   const forecast = useSelector(SelectForecast);
+  const isCelsius = useSelector(SelectIsCelsius);
 
   const { name, country } = location;
 
   const {
     temp_c,
+    temp_f,
     feelslike_c,
+    feelslike_f,
     wind_kph,
     humidity,
     is_day,
@@ -43,8 +47,10 @@ export default function Current() {
 
   const {
     astro: { sunrise, sunset },
-    day: { mintemp_c, maxtemp_c },
+    day: { mintemp_c, maxtemp_c, mintemp_f, maxtemp_f },
   } = forecast[0];
+
+  // const temp = {` isCelsius ? temp_c: temp_f`};
 
   return (
     <motion.div
@@ -52,10 +58,10 @@ export default function Current() {
       animate="visible"
       variants={animation}
       custom={1}
-      className="  rounded-2xl flex flex-col bg-white/20 opacity-10   text-white py-6 px-7"
+      className="rounded-2xl flex flex-col max-w-[320px] sm:max-w-[640px] bg-black/40 text-white p-3"
     >
       <h3>Current weather:</h3>
-      <div className="flex flex-col p-3 sm:flex-row gap-20">
+      <div className="flex flex-col pt-3 sm:flex-row gap-5 justify-between">
         <div className="flex flex-col items-start justify-between">
           <div className="flex gap-3 items-center">
             <BsGeoAlt size={26} />
@@ -72,18 +78,18 @@ export default function Current() {
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
-            <p className=" text-7xl">
-              {temp_c} <sup>o</sup>
+            <p className=" text-6xl">
+              {isCelsius ? temp_c : temp_f} <sup>o</sup>
             </p>
           </div>
           <p className=" text-2xl">{text}</p>
         </div>
         {/* другая сторона */}
-        <div className="flex w-72 flex-col items-start gap-4">
+        <div className="flex w-72 flex-col items-center sm:items-start gap-4">
           <div className="flex gap-3 text-2xl font-medium">
             <p className="text-sky-300">Feels like:</p>
             <p>
-              {feelslike_c} <sup>o</sup>
+              {isCelsius ? feelslike_c : feelslike_f} <sup>o</sup>
             </p>
           </div>
           <div className="flex gap-3  items-center">
@@ -113,7 +119,7 @@ export default function Current() {
             <div className="flex items-center gap-2">
               <span className="text-sky-300">min: </span>
               <p>
-                {mintemp_c}
+                {isCelsius ? mintemp_c : mintemp_f}
                 <sup>o</sup>
               </p>
             </div>
@@ -121,7 +127,7 @@ export default function Current() {
             <div className="flex items-center gap-2">
               <span className="text-sky-300">max: </span>
               <p>
-                {maxtemp_c}
+                {isCelsius ? maxtemp_c : maxtemp_f}
                 <sup>o</sup>
               </p>
             </div>

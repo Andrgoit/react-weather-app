@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const settingInitialState = {
-  staticBg: true,
+  isCelsius: true,
 };
 
 const settingSlice = createSlice({
@@ -10,12 +10,12 @@ const settingSlice = createSlice({
   initialState: settingInitialState,
 
   reducers: {
-    toggleStaticBg(state, _) {
-      state.staticBg = !state.staticBg;
+    toggleCelsius(state, _) {
+      state.isCelsius = !state.isCelsius;
     },
   },
 });
 
-export const { toggleStaticBg } = settingSlice.actions;
+export const { toggleCelsius } = settingSlice.actions;
 
 export const settingReducer = settingSlice.reducer;

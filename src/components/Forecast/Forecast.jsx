@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
 import { SelectForecast } from "../../redux/weather/weatherSelectors";
-import { motion } from "framer-motion";
+import { SelectIsCelsius } from "../../redux/setting/settingSelectors";
+
 import weekDay from "../../utils/weekDay";
 import { forecastGetWeatherIcon } from "../../utils/forecastGetWeatherIcon";
+
+import { motion } from "framer-motion";
 
 const animation = {
   hidden: { x: 100, opacity: 0 },
@@ -15,6 +18,7 @@ const animation = {
 
 export default function Forecast() {
   const forecast = useSelector(SelectForecast);
+  const isCelsius = useSelector(SelectIsCelsius);
   const newForecast = forecast.slice(1);
 
   const elements = newForecast.map(
@@ -23,10 +27,15 @@ export default function Forecast() {
       day: {
         maxtemp_c,
         mintemp_c,
+        maxtemp_f,
+        mintemp_f,
         condition: { code, text },
       },
     }) => (
-      <li key={date} className="text-2xl flex flex-col gap-4 items-center">
+      <li
+        key={date}
+        className="text-2xl max-w-full flex flex-col gap-4 items-center border-white first:border-b-[1px] sm:max-w-xs sm:first:border-b-0 p-3"
+      >
         <p>{weekDay(date)}</p>
         <div
           className=" w-32 h-32"
@@ -38,8 +47,8 @@ export default function Forecast() {
         ></div>
         <p>{text}</p>
         <p>
-          {mintemp_c}
-          <sup>o </sup>/ {maxtemp_c}
+          {isCelsius ? mintemp_c : mintemp_f}
+          <sup>o </sup>/{isCelsius ? maxtemp_c : maxtemp_f}
           <sup>o</sup>
         </p>
       </li>
@@ -52,10 +61,12 @@ export default function Forecast() {
       animate="visible"
       variants={animation}
       custom={1}
-      className=" bg-white/20 text-white py-6 px-7 rounded-xl"
+      className=" bg-black/40 text-white p-3 rounded-xl"
     >
       <h3>Extended forecast:</h3>
-      <ul className="  flex flex-col gap-8 sm:flex-row p-3 ">{elements}</ul>
+      <ul className="flex flex-col max-w-xs sm:max-w-full sm:flex-row sm:gap-4">
+        {elements}
+      </ul>
     </motion.div>
   );
 }
