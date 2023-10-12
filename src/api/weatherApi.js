@@ -9,3 +9,5 @@ const weatherFetch = async (city) => {
 };
 
 export default weatherFetch;
+
+// http://api.weatherapi.com/v1/search.json?key=7e50540af03d4b7bb99192636230710&q=lond

@@ -2,7 +2,7 @@
 
 ![screen](./public/preview.JPG)
 
-Этот проект был написан с помощью [Create React App](https://github.com/facebook/create-react-app), Redux, redux-persist, axios, tailwindcss и др.
+Этот Pet-проект написан с помощью React, Redux, redux-persist, axios, tailwindcss, framer-motion и др.
 
 [Погодный API - www.weatherapi.com](https://www.weatherapi.com/)
 

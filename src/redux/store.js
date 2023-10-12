@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import { settingReducer } from "./setting/settingSlice";
 import { queryReducer } from "./query/querySlice";
+import { cityesReducer } from "./cityes/cityesSlice";
 import { weatherReducer } from "./weather/weatherSlice";
 
 import {
@@ -25,6 +26,7 @@ const persistedReducer = persistReducer(persistConfig, settingReducer);
 export const store = configureStore({
   reducer: {
     setting: persistedReducer,
+    cityes: cityesReducer,
     query: queryReducer,
     weather: weatherReducer,
   },

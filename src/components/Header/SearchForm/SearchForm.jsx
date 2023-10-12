@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
+import { MdOutlineMyLocation } from "react-icons/md";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setQuery } from "../../../redux/query/querySlice";
+import { fetchCityes } from "../../../redux/cityes/cityesOperations";
+import findCityByIp from "../../../api/findCityByIp";
+
+import CityList from "../../CityList/CityList";
 
 export default function SearchForm() {
   const [q, setQ] = useState("");
+  const [isHover, setIsHover] = useState(false);
   const dispatch = useDispatch();
 
   const handlerSubmit = (e) => {
@@ -17,10 +23,23 @@ export default function SearchForm() {
     setQ("");
   };
 
+  const locationHandler = async (e) => {
+    e.preventDefault();
+    const { city, country_name } = await findCityByIp();
+    const fullName = `${city},${country_name}`;
+    dispatch(setQuery(fullName));
+  };
+
+  useEffect(() => {
+    if (q) {
+      dispatch(fetchCityes(q));
+    }
+  }, [dispatch, q]);
+
   return (
     <form
       onSubmit={handlerSubmit}
-      className=" bg-transparent border-b-2 border-b-white rounded-2xl py-2 px-2 flex items-center max-w-[320px] sm:w-[400px]"
+      className=" relative bg-transparent border-b-2 border-b-white rounded-2xl py-2 px-2 flex items-center max-w-xs sm:max-w-[400px]"
     >
       <input
         onChange={(e) => setQ(e.target.value)}
@@ -34,6 +53,25 @@ export default function SearchForm() {
       <button type="submit" className="text-white">
         <IoSearch size={30} />
       </button>
+      <button
+        type="button"
+        onClick={locationHandler}
+        className="text-white relative"
+        onMouseEnter={() => {
+          setIsHover(true);
+        }}
+        onMouseLeave={() => {
+          setIsHover(false);
+        }}
+      >
+        <MdOutlineMyLocation size={30} />
+        {isHover && (
+          <div className=" p-2 w-48 rounded-lg bg-orange-300 text-black absolute top-10 left-[35px]">
+            <p>click for automatic location detection</p>
+          </div>
+        )}
+      </button>
+      <CityList />
     </form>
   );
 }
