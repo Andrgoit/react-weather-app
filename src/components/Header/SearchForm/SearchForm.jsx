@@ -66,7 +66,7 @@ export default function SearchForm() {
       >
         <MdOutlineMyLocation size={30} />
         {isHover && (
-          <div className=" p-2 w-48 rounded-lg bg-orange-300 text-black absolute top-10 left-[35px]">
+          <div className=" z-10 p-2 w-48 rounded-lg bg-orange-300 text-black absolute top-10 right-[35px]">
             <p>click for automatic location detection</p>
           </div>
         )}
