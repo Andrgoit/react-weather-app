@@ -8,9 +8,8 @@ export default function Setting() {
   const dispatch = useDispatch();
 
   return (
-    <div className="text-white p-3 flex flex-col items-end gap-3">
-      <div className="flex items-center gap-1 ">
-        <p>Temperature</p>
+    <div className="text-white flex flex-col items-end gap-3">
+      <div className="flex items-center  ">
         <Switch
           uncheckedIcon={
             <p className=" p-1">

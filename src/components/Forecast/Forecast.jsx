@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { SelectForecast } from "../../redux/weather/weatherSelectors";
 import { SelectIsCelsius } from "../../redux/setting/settingSelectors";
 
-import weekDay from "../../utils/weekDay";
+import weekDay from "../../utils/getWeekDay";
 import { forecastGetWeatherIcon } from "../../utils/forecastGetWeatherIcon";
 
 import { motion } from "framer-motion";

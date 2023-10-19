@@ -2,6 +2,7 @@ import Logo from "./Logo/Logo";
 import Date from "../Date/Date";
 import Setting from "../Setting/Setting";
 import SearchForm from "./SearchForm/SearchForm";
+import ChangeLang from "../ChangeLang/ChangeLang";
 
 import { motion } from "framer-motion";
 
@@ -32,7 +33,10 @@ export default function Header() {
         <Date />
       </div>
       <SearchForm />
-      <Setting />
+      <div className=" flex p-3 gap-4 sm:flex-col items-center sm:items-end">
+        <Setting />
+        <ChangeLang />
+      </div>
     </motion.div>
   );
 }

@@ -76,7 +76,7 @@ export default function Current() {
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
-            <p className=" text-6xl">
+            <p className=" text-5xl">
               {isCelsius ? temp_c : temp_f} <sup>o</sup>
             </p>
           </div>
