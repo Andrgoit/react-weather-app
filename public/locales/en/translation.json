@@ -1,0 +1,11 @@
+{
+  "header_placeholder": "Enter city...",
+  "header_warn": "Please, enter name of city...",
+  "header_hover": "click for automatic location detection",
+  "current_title": "Current wether",
+  "feels": "Feels like",
+  "wind": "Wind",
+  "km": "km/h",
+  "humidity": "Humidity",
+  "forecast_title": "Extended forecas"
+}

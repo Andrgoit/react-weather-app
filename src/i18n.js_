@@ -1,0 +1,61 @@
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+const resources = {
+  en: {
+    header: {
+      placeholder: "Enter city...",
+      warn: "Please, enter name of city...",
+      hover: "click for automatic location detection",
+    },
+    current: {
+      title: "Current wether",
+      feels: "Feels like",
+      wind: "Wind",
+      km: "km/h",
+      humidity: "Humidity",
+    },
+    forecast: {
+      title: "Extended forecas",
+    },
+  },
+  uk: {
+    header: {
+      placeholder: "Введіть місто...",
+      warn: "Введіть назву міста...",
+      hover: "натисніть для автоматичного визначення місцезнаходження",
+    },
+    current: {
+      title: "Поточна погода",
+      feels: "Начебто",
+      wind: "Вітер",
+      km: "км/год",
+      humidity: "Вологість",
+    },
+    forecast: {
+      title: "Розширений прогноз",
+    },
+  },
+  ru: {
+    header: {
+      placeholder: "Введите город...",
+      warn: "Пожалуйста, введите название города...",
+      hover: "нажмите, чтобы автоматически определить местоположение",
+    },
+    current: {
+      title: "Текущая погода",
+      feels: "Как будто",
+      wind: "Ветер",
+      km: "км/ч",
+      humidity: "Влажность",
+    },
+    forecast: {
+      title: "Расширенный прогноз",
+    },
+  },
+};
+
+i18n.use(initReactI18next).init({ resources, lng: "uk", debug: true });
+
+// i18n.changeLanguage("ru");
+export default i18n;

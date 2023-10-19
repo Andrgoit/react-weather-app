@@ -9,15 +9,20 @@ import findCityByIp from "../../../api/findCityByIp";
 
 import CityList from "../../CityList/CityList";
 
+//localization
+import { useTranslation } from "react-i18next";
+
 export default function SearchForm() {
   const [q, setQ] = useState("");
   const [isHover, setIsHover] = useState(false);
   const dispatch = useDispatch();
 
+  const { t } = useTranslation();
+
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (!q) {
-      toast.warn("Please, enter name of city...");
+      toast.warn(`{t("header.warn")}`);
     }
     dispatch(setQuery(q));
     setQ("");
@@ -46,7 +51,7 @@ export default function SearchForm() {
         name="query"
         value={q}
         type="text"
-        placeholder="Enter city..."
+        placeholder={t("header_placeholder")}
         autoComplete="off"
         className="w-full outline-0 bg-transparent py-2 px-2 text-xl  text-white font-medium placeholder:text-white/40"
       />
@@ -67,7 +72,7 @@ export default function SearchForm() {
         <MdOutlineMyLocation size={30} />
         {isHover && (
           <div className=" z-10 p-2 w-48 rounded-lg bg-orange-300 text-black absolute top-10 right-[35px]">
-            <p>click for automatic location detection</p>
+            <p>{t("header_hover")}</p>
           </div>
         )}
       </button>

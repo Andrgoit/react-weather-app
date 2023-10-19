@@ -2,7 +2,7 @@
 
 ![screen](./public/preview.JPG)
 
-Этот Pet-проект написан с помощью React, Redux, redux-persist, axios, tailwindcss, framer-motion и др.
+Этот мультиязычный Pet-проект написан с помощью React, Redux, redux-persist, axios, tailwindcss, framer-motion, i18n и др.
 
 [Погодный API - www.weatherapi.com](https://www.weatherapi.com/)
 

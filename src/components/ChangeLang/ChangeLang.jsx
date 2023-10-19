@@ -5,6 +5,8 @@ import { getLangIcons } from "../../utils/getLangIcon";
 import { changeLang } from "../../redux/setting/settingSlice";
 import langIcons from "../../data/langIcons";
 
+import i18n from "i18next";
+
 export default function ChangeLang() {
   const [isOpen, setIsOpen] = useState(false);
   const lang = useSelector(SelectLang);
@@ -12,11 +14,20 @@ export default function ChangeLang() {
   const dispatch = useDispatch();
   const filteredIcons = langIcons.filter((item) => item.lang !== lang);
 
+  const changeLanguageHandler = (lang) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem("lang", lang);
+  };
+
   const elements = filteredIcons.map(({ id, lang, icon }) => (
     <li
       key={id}
       className="w-12 h-12 cursor-pointer"
-      onClick={() => dispatch(changeLang(lang), setIsOpen(false))}
+      onClick={() => {
+        dispatch(changeLang(lang));
+        setIsOpen(false);
+        changeLanguageHandler(lang);
+      }}
     >
       <img src={icon} alt="lang icon" />
     </li>

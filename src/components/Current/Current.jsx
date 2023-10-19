@@ -17,6 +17,8 @@ import {
 
 import { getWeatherIcon } from "../../utils/getWeatherIcon";
 
+import { useTranslation } from "react-i18next";
+
 const animation = {
   hidden: { x: -100, opacity: 0 },
   visible: (custom) => ({
@@ -31,6 +33,8 @@ export default function Current() {
   const current = useSelector(SelectCurrent);
   const forecast = useSelector(SelectForecast);
   const isCelsius = useSelector(SelectIsCelsius);
+
+  const { t } = useTranslation();
 
   const { name, country } = location;
 
@@ -58,7 +62,7 @@ export default function Current() {
       custom={1}
       className="rounded-2xl flex flex-col max-w-[320px] sm:max-w-[640px] bg-black/40 text-white p-3"
     >
-      <h3>Current weather:</h3>
+      <h3>{t("current_title")}:</h3>
       <div className="flex flex-col pt-3 sm:flex-row gap-5 justify-between">
         <div className="flex flex-col items-start justify-between">
           <div className="flex gap-3 items-center">
@@ -85,7 +89,7 @@ export default function Current() {
         {/* другая сторона */}
         <div className="flex w-72 flex-col items-center sm:items-start gap-4">
           <div className="flex gap-3 text-2xl font-medium">
-            <p className="text-sky-300">Feels like:</p>
+            <p className="text-sky-300">{t("feels")}:</p>
             <p>
               {isCelsius ? feelslike_c : feelslike_f} <sup>o</sup>
             </p>
@@ -132,12 +136,15 @@ export default function Current() {
           </div>
           <div className="flex items-center  text-2xl gap-2">
             <GiWindsock size={36} />
-            <span className="text-sky-300">Wind: </span>
-            <p> {wind_kph} km/h</p>
+            <span className="text-sky-300">{t("wind")}: </span>
+            <p>
+              {" "}
+              {wind_kph} {t("km")}
+            </p>
           </div>
           <div className="flex items-center  text-2xl gap-2">
             <WiHumidity size={36} />{" "}
-            <span className="text-sky-300">Humidity: </span>
+            <span className="text-sky-300">{t("humidity")}: </span>
             <p>{humidity}</p>
           </div>
         </div>
